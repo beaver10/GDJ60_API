@@ -22,7 +22,7 @@ public class ObjectStudy {
 		
 		
 		System.out.println(object==obj);
-		//위와 아래의 코드는 같다 이퀄을사용하면 ==과 같음
+		//위와 아래의 코드는 같다 equals을사용하면 ==과 같음
 		boolean check =object.equals(obj);
 		System.out.println(check);
 		
