@@ -12,27 +12,22 @@ public class StringEx2 {
 		//이미지 파일만 허용 가능하게
 		
 		int idx = fileName.indexOf(".");
-		String result = fileName.substring(idx);
+		String result = fileName.substring(idx+1);
 		System.out.println(idx);
 		System.out.println(result);
 		
 		boolean flag = true;
-		for(int i = 0; i>names.length;i++) {
+		for(int i = 0; i<names.length;i++) {
 			if(result.equals(names[i])) {
 				System.out.println("정상적인 파일");
 				flag=!flag;
+				break;
 			}
-				
 		}
 		if(flag) {
 				System.out.println("비정상적인 파일");
 		}
 		
-		
-		
-		
-		
-
 	}
 
 }
