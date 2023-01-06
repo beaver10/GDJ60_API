@@ -18,7 +18,7 @@ public class StringEx2 {
 		
 		boolean flag = true;
 		for(int i = 0; i>names.length;i++) {
-			if(result.equals(names)) {
+			if(result.equals(names[i])) {
 				System.out.println("정상적인 파일");
 				flag=!flag;
 			}
