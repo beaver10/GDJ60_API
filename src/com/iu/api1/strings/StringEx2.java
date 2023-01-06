@@ -11,11 +11,13 @@ public class StringEx2 {
 		String fileName=sc.next(); //sdsad.gif
 		//이미지 파일만 허용 가능하게
 		
+		//확장자 분리작업
 		int idx = fileName.indexOf(".");
 		String result = fileName.substring(idx+1);
 		System.out.println(idx);
 		System.out.println(result);
 		
+		//이미지인지 확인
 		boolean flag = true;
 		for(int i = 0; i<names.length;i++) {
 			if(result.equals(names[i])) {
@@ -23,7 +25,7 @@ public class StringEx2 {
 				flag=!flag;
 				break;
 			}
-		}
+		}//for문 끝
 		if(flag) {
 				System.out.println("비정상적인 파일");
 		}
