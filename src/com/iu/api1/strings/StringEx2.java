@@ -16,13 +16,17 @@ public class StringEx2 {
 		System.out.println(idx);
 		System.out.println(result);
 		
-		boolean check = false;
-			if(result.equals(result)) {
+		boolean flag = true;
+		for(int i = 0; i>names.length;i++) {
+			if(result.equals(names)) {
 				System.out.println("정상적인 파일");
+				flag=!flag;
+			}
 				
-			}System.out.println("비정상적인 파일");
-			
-		
+		}
+		if(flag) {
+				System.out.println("비정상적인 파일");
+		}
 		
 		
 		
