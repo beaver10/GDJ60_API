@@ -58,9 +58,11 @@ public class WeatherController {
 				break;
 			case 3 :
 				System.out.println("지역 날씨 검색");
-				this.weatherDTOs = weatherInput.seach(this.weatherDTOs);
-				if(WeatherDTO != null) {
-					weatherView
+				WeatherDTO weatherDTO = weatherInput.seach(weatherDTOs);
+				if(weatherDTO != null) {
+					weatherView.view(weatherDTO);
+				}else {
+					System.out.println("도시 정보가 없습니다");
 				}
 				break;
 			case 4 :
