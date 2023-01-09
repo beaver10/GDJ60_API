@@ -37,15 +37,16 @@ public class WeatherInput {
 	//배열에 추가하고 배열을 리턴
 	
 	public WeatherDTO [] add(WeatherDTO [] weatherDTOs) {
+
 		WeatherDTO weatherDTO = new WeatherDTO();
 		System.out.println("도시명을 입력하세요");
 		weatherDTO.setCity(sc.next());
 		System.out.println("기온을 입력하세요");
-		weatherDTO.setGion(sc.next());
+		weatherDTO.setGion(sc.nextInt());
 		System.out.println("날씨를 입력하세요");
 		weatherDTO.setStatus(sc.next());
 		System.out.println("미세먼지를 입력하세요");
-		weatherDTO.setMise(sc.next());
+		weatherDTO.setMise(sc.nextInt());
 		WeatherDTO [] newInfo = new WeatherDTO[weatherDTOs.length+1];
 		
 		for(int i =0;i<weatherDTOs.length;i++) {
