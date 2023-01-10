@@ -8,7 +8,7 @@ public class ListMain3 {
 		//Collection은 Type에 안전하지 않다
 		//무슨 타입인지 정해져있지 않기 때문!
 		//꺽쇠는 Generic : Type의 안전성을 위한것
-		//E는 엘리먼트의 약자 
+		//E는 엘리먼트(요소)의 약자 
 		//E : 변수명
 		//E = Integer
 		//int는 안됨 레퍼런스타입만 되기 때문 = 대신 Integer을 넣음
