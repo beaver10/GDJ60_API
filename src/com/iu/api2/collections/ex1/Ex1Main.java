@@ -1,5 +1,7 @@
 package com.iu.api2.collections.ex1;
 
+import java.util.ArrayList;
+
 public class Ex1Main {
 
 	public static void main(String[] args) {
@@ -11,6 +13,26 @@ public class Ex1Main {
 		// 5. 학생정보 삭제(이름으로 조회)
 		// 6. 프로그램 종료
 		
+		
+		new StudentController().start();
+		
+		
+		
+//		일반 for문		
+//		for(int i = 0; i<ar.size();i++) {
+//			System.out.println(ar.get(i).getName());
+//		}
+	
+//		향상된 for문
+//		for(StudentDTO studentDTO:ar) {
+//			
+//		}
+//		
+//		예시
+//		int [] nums = new int [3];
+//		for(int n:nums) {
+//			
+//		} 하지만 인덱스 번호를 못씀 ex. i
 
 	}
 
