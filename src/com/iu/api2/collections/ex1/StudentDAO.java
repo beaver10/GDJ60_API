@@ -1,5 +1,6 @@
 package com.iu.api2.collections.ex1;
 
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class StudentDAO {
@@ -19,40 +20,27 @@ public class StudentDAO {
 	
 	public StudentDAO [] init() {
 		
-		String str = sb.toString();
+		String data = this.sb.toString();
 		
-		System.out.println(str);
+		data = data.replace("-", ",");
+		data = data.replace(",", " ");
 		
-		str = str.replace("-", ",");
-		str = str.replace(",", " ");
-		
-		StringTokenizer st = new StringTokenizer(str.toString()," ");
-		StudentDAO[] students = new StudentDAO[st.countTokens()/5];
+		StringTokenizer st = new StringTokenizer(data," ");
+		ArrayList<StudentDTO> ar = new ArrayList<>(st.countTokens()/5);
 		
 		
-		int i = 0;
 		while(st.hasMoreTokens()) {
-			StudentDAO studentDAO = new StudentDAO();
+			StudentDTO studentDTO = new StudentDTO();
+			studentDTO.setName(st.nextToken());
+			studentDTO.setNum(Integer.parseInt(st.nextToken()));
+			studentDTO.setKor(Integer.parseInt(st.nextToken()));
+			studentDTO.setEng(Integer.parseInt(st.nextToken()));
+			studentDTO.setMath(Integer.parseInt(st.nextToken()));
+			studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath());
+			studentDTO.setAvg(studentDTO.getTotal()/3.0);
 			
-			String t1 = st.nextToken();
-			studentDAO.sb.toString();
-		
-			String t2 =st.nextToken();
-			studentDAO.sb.toString();
-			
-			String t3 =st.nextToken();
-			studentDAO.sb.toString();
-			
-			String t4 =st.nextToken();
-			studentDAO.sb.toString();
-			
-			String t5 =st.nextToken();
-			studentDAO.sb.toString();
-			
-			students[i] = studentDAO;
-			i++;
 		}
-		return students;
+		return init();
 	}
 	
 	

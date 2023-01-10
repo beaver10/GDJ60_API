@@ -17,12 +17,13 @@ public class Ex1Main {
 		// 5. 학생정보 삭제(이름으로 조회)
 		// 6. 프로그램 종료
 		StudentDAO studentDAO = new StudentDAO();
-		StudentView studentView = new StudentView();
+	//	StudentView studentView = new StudentView();
 
 		System.out.println("Start");
 		
-	
-		new Controller().Start();
+		StudentDTO studentDTO = new StudentDTO();
+		studentDAO.init();
+		//new Controller().Start();
 		
 		
 		System.out.println("finish");
