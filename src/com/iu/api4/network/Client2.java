@@ -42,15 +42,19 @@ public class Client2 {
 			try {
 				socket = new Socket("192.168.1.138", 8282);
 				System.out.println("Server 접속 성공");
+
+				is =socket.getInputStream();
+				ir = new InputStreamReader(is);
+				br = new BufferedReader(ir);
 				
+				//0,1 바꿔주는 애
+				os = socket.getOutputStream();
+				//char 바꿔주는애
+				ow = new OutputStreamWriter(os);
+				//stream
+				bw = new BufferedWriter(ow);
 				
 				while(check) {
-					//0,1 바꿔주는 애
-					os = socket.getOutputStream();
-					//char 바꿔주는애
-					ow = new OutputStreamWriter(os);
-					//stream
-					bw = new BufferedWriter(ow);
 				
 					System.out.println(" 1.점심    2.저녁    3.종료");
 					int select = scanner.nextInt();
@@ -59,32 +63,16 @@ public class Client2 {
 					bw.write(select+"\r\n");
 					bw.flush();
 					
-					is =socket.getInputStream();
-					ir = new InputStreamReader(is);
-					br = new BufferedReader(ir);
-					
-					
-				
-					switch (select) {
-					case 1 : 
-						menu = br.readLine();
-						System.out.println("점심 : "+ menu);
-
-						
-						
-					case 2 :
-						
-						
-					default : 
+					if(select == 3) {
 						System.out.println("종료");
 						break;
-
-				
-				
-				
-				
 					}
-				}
+				
+					menu = br.readLine();
+					System.out.println("오늘 메뉴는 : "+ menu);
+
+					}
+				
 			}catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

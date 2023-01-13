@@ -8,10 +8,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Server2 {
 
@@ -21,19 +19,8 @@ public class Server2 {
 		// 2번 : 저녁 메뉴중 하나를 랜덤하게 골라서 전송
 		// 3번 : 종료
 		
-		Scanner scanner = new Scanner(System.in);
-		Calendar ca = Calendar.getInstance();
-		Random random = new Random(ca.getTimeInMillis());
-		
-		String[] lunch = {"라면", "햄버거", "피자", "치킨"};
-		int idx = random.nextInt(100)%4;
-		String menu = lunch[idx];
-		
-		
-		
-		
 		ServerSocket ss=null;
-		Socket sc = null;
+		Socket sc = null; 
 		//입력
 		InputStream is = null;
 		InputStreamReader ir = null;
@@ -42,23 +29,23 @@ public class Server2 {
 		OutputStream os = null;
 		OutputStreamWriter ow = null;
 		BufferedWriter bw = null;
-
+				
+		String[] lunch = {"라면", "햄버거", "피자", "치킨"};
+		String[] dinner = {"고기", "김찌", "된찌", "맨밥"};
 		
-		int num;
 		boolean check = true;
 		
 
 		try {
 			ss= new ServerSocket(8282);
 			System.out.println("Client 접속 기다리는 중");
-			sc = ss.accept();
+			sc = ss.accept(); //new를쓰면 안됨 서버 번호를 모르기때문 
 			System.out.println("Client와 연결 성공");
 
 
 			is =sc.getInputStream();
 			ir = new InputStreamReader(is);
 			br = new BufferedReader(ir);
-			
 
 			//0,1 바꿔주는 애
 			os = sc.getOutputStream();
@@ -67,24 +54,40 @@ public class Server2 {
 			//stream
 			bw = new BufferedWriter(ow);
 			
+			while(check) {
+				
+				String data=br.readLine();
+				int select = Integer.parseInt(data);
+				
+				
+				Calendar ca = Calendar.getInstance();
+				Random random = new Random(ca.getTimeInMillis());
 			
-			int select= br.read();
+				String menu = null;
 			
-		
-			switch (select) {
-				case 1 : {
+				switch (select) {
+					case 1 : 
+						System.out.println("1번 선택");
+						select = random.nextInt(100)%4;
+						menu=lunch[select];
+						break;
+					case 2 :
+						System.out.println("2번 선택");
+						select = random.nextInt(100)%4;
+						menu=dinner[select];
+						break;
+					default :
+						System.out.println("종료");
+						check=false;
+			
+					}
+				
+				if(check) {
 					bw.write(menu+"\r\n");
-					System.out.println(menu);
 					bw.flush();
-				}case 2 :{
-					
-				}case 3 :{
-					
-				}default :
-		
 				}
 	
-		
+				}
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
